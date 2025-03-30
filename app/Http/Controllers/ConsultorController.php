@@ -15,12 +15,12 @@ class ConsultorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre_completo' => 'required|string|max:255',
+            'nombre_completo' => 'nullable|string|max:255',
             'email' => 'required|email',
             'celular' => 'required|numeric',
             'edad' => 'required|integer',
             'republica' => 'nullable|string|max:255',
-            'consultor' => 'nullable|string|max:255',
+            'consultor' => 'required|string|max:255',
             'motivo' => 'required|string',
         ]);
 
