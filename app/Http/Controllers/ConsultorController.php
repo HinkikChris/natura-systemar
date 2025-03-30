@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Consultor;
+use Illuminate\Http\Request;
+
+class ConsultorController extends Controller
+{
+    public function create()
+    {
+        return view('consultor.form');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nombre_completo' => 'required|string|max:255',
+            'email' => 'required|email',
+            'celular' => 'required|numeric',
+            'edad' => 'required|integer',
+            'republica' => 'nullable|string|max:255',
+            'consultor' => 'nullable|string|max:255',
+            'motivo' => 'required|string',
+        ]);
+
+        // Crear un nuevo consultor y guardar en la base de datos
+        Consultor::create([
+            'nombre_completo' => $request->nombre_completo,
+            'email' => $request->email,
+            'celular' => $request->celular,
+            'edad' => $request->edad,
+            'republica' => $request->republica,
+            'consultor' => $request->consultor,
+            'motivo' => $request->motivo,
+        ]);
+
+        // Redirigir con un mensaje de éxito
+        return redirect()->back()->with('success', 'Formulario enviado con éxito.');
+    }
+}
