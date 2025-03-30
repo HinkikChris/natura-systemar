@@ -24,7 +24,6 @@ class ConsultorController extends Controller
             'motivo' => 'required|string',
         ]);
 
-        // Crear un nuevo consultor y guardar en la base de datos
         Consultor::create([
             'nombre_completo' => $request->nombre_completo,
             'email' => $request->email,
@@ -35,7 +34,6 @@ class ConsultorController extends Controller
             'motivo' => $request->motivo,
         ]);
 
-        // Redirigir con un mensaje de éxito
-        return redirect()->back()->with('success', 'Formulario enviado con éxito.');
+        return redirect()->back()->with('success', 'Formulario enviado muchas gracias.');
     }
 }

@@ -126,9 +126,10 @@
                 <div class="text-overlay">
                     <h2 class="text-center tittle-footer">Suscríbete a nuestra lista de correo y</h2>
                     <p class="text-center paragraf-footer">entérate de todas nuestras novedades</p>
-                    <form action="">
+                    <form action="{{ route('info') }}" method="POST">
+                        @csrf
                         <div class="col-md-6 form-group mx-auto text-center">
-                            <input type="email" class="form-control w-75 mx-auto" id="email" placeholder="Dirección de email" required>
+                            <input type="email" class="form-control w-75 mx-auto" name="email" placeholder="Dirección de email" required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-footer">Enviar</button>
                     </form>
@@ -145,6 +146,17 @@
                 Swal.fire({
                     title: '¡Éxito!',
                     text: "{{ session('success') }}",
+                    icon: 'success',
+                    timer: 3000,
+                    confirmButtonText: 'Aceptar'
+                });
+            </script>
+        @endif
+        @if(session('success2'))
+            <script>
+                Swal.fire({
+                    title: '¡Éxito!',
+                    text: "{{ session('success2') }}",
                     icon: 'success',
                     timer: 3000,
                     confirmButtonText: 'Aceptar'
