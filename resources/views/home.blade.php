@@ -137,10 +137,6 @@
             </div>        
             <div class="small text-center text-footer">&copy;  2025 por Natura Amazonía</div>
         </footer>
-        <!--Mensaje Ejemplo-->
-        <div>
-            <i class="fa fa-hourglass" aria-hidden="true"></i>
-        </div> 
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/simple-lightbox.min.js') }}"></script>
         <script src="{{ asset('js//script.js') }}"></script>
